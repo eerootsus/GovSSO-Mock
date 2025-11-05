@@ -54,7 +54,7 @@ func loadIdTokenSigningKey(config config) (*jose.SigningKey, error) {
 	if pemBlock == nil {
 		return nil, errors.New("Unable to parse private key")
 	}
-	privateKey, err := x509.ParsePKCS1PrivateKey(pemBlock.Bytes)
+	privateKey, err := x509.ParsePKCS8PrivateKey(pemBlock.Bytes)
 	if err != nil {
 		return nil, err
 	}
