@@ -16,5 +16,9 @@ type config struct {
 }
 
 func (this config) HostUri() string {
-	return fmt.Sprintf("https://%s:%s%s", this.Host, this.ServerPort, this.BaseHref)
+	port:= ""
+	if this.ServerPort != "443" {
+		port = ":" + this.ServerPort
+	}
+	return fmt.Sprintf("https://%s%s%s", this.Host, port , this.BaseHref)
 }
