@@ -18,5 +18,5 @@ WORKDIR /govsso-mock
 COPY ./ui ./ui
 COPY --from=builder /tmp/app /govsso-mock/govsso-mock
 
-EXPOSE 10443
+EXPOSE 443
 ENTRYPOINT ["/govsso-mock/govsso-mock"]
